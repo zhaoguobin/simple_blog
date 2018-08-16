@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the Admin::DashboardHelper. For example:
+# the Admin::SessionsHelper. For example:
 #
-# describe Admin::DashboardHelper do
+# describe Admin::SessionsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe Admin::DashboardHelper, type: :helper do
+RSpec.describe Admin::SessionsHelper, type: :helper do
   
 end

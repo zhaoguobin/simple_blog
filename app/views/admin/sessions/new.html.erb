@@ -1,0 +1,16 @@
+<div id="admin_login_page" class="text-center">
+  <% username = params[:admin].try(:[], :username) %>
+  <%= form_tag admin_login_path, class: 'rounded bg-light' do %>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in.</h1>
+
+    <%= label_tag 'admin_username', nil, class: 'sr-only' %>
+    <%= text_field_tag 'admin[username]', username, placeholder: 'Username', tabindex: 1, class: 'form-control', autofocus: username.blank? %>
+
+    <%= label_tag 'admin_password', nil, class: 'sr-only' %>
+    <%= password_field_tag 'admin[password]', nil, placeholder: 'Password', tabindex: 2, class: 'form-control', autofocus: username.present? %>
+
+    <%= submit_tag 'Sign in', class: 'btn btn-lg btn-primary btn-block', tabindex: 3 %>
+
+    <p class="mt-5 mb-3 text-muted">2018 © Simple Blog</p>
+  <% end %>
+</div>
