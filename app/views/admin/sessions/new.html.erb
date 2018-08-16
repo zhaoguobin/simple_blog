@@ -3,6 +3,8 @@
   <%= form_tag admin_login_path, class: 'rounded bg-light' do %>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in.</h1>
 
+    <%= render 'admin/shared/flash_messages' %>
+
     <%= label_tag 'admin_username', nil, class: 'sr-only' %>
     <%= text_field_tag 'admin[username]', username, placeholder: 'Username', tabindex: 1, class: 'form-control', autofocus: username.blank? %>
 
