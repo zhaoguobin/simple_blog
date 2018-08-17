@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_071915) do
+ActiveRecord::Schema.define(version: 2018_08_17_142828) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "slug", null: false
+    t.string "avatar"
+    t.string "description"
+    t.integer "articles_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_categories_on_slug"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
