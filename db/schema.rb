@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_17_032103) do
+ActiveRecord::Schema.define(version: 2018_08_17_071915) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 2018_08_17_032103) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_tag_groups_on_slug"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.string "slug", null: false
+    t.string "avatar"
+    t.string "description"
+    t.integer "tag_group_id"
+    t.integer "articles_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_tags_on_slug"
   end
 
 end

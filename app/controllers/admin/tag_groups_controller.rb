@@ -20,6 +20,7 @@ class Admin::TagGroupsController < Admin::ApplicationController
   end
 
   def show
+    @tags = @tag_group.tags.page(params[:page])
   end
 
   def edit

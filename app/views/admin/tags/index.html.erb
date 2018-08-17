@@ -1,7 +1,10 @@
-<div id="admin_tag_groups">
+<div id="admin_tags">
   <%= render 'admin/shared/flash_messages' %>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h3>Tags of tag group (<%= @tag_group.name %>)</h3>
+    <h3>Tags</h3>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <%= link_to 'New', new_admin_tag_path, class: 'btn btn-primary' %>  
+    </div>
   </div>
   <div>
     <table class="table table-hover">
@@ -9,6 +12,7 @@
         <tr>
           <th scope="col">ID</th>
           <th scope="col">Name</th>
+          <th scope="col">Tag group</th>
           <th scope="col">Articles count</th>
           <th scope="col"></th>
         </tr>
@@ -18,6 +22,7 @@
           <tr>
             <td><%= tag.id %></td>
             <td><%= link_to tag.name, admin_tag_path(tag) %></td>
+            <td><%= link_to tag.tag_group.name, admin_tag_group_path(tag.tag_group) %></td>
             <td><%= tag.articles_count %></td>
             <td>
               <%= link_to 'Edit', edit_admin_tag_path(tag), class: 'btn btn-primary btn-sm' %>
@@ -27,7 +32,7 @@
         <% end %>
         <% if @tags.blank? %>
           <tr>
-            <td colspan="4">No record.</td>
+            <td colspan="5">No record.</td>
           </tr>
         <% end %>
       </tbody>

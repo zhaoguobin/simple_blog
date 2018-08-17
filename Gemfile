@@ -34,6 +34,10 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'friendly_id', '~> 5.2.4'
 gem 'kaminari', '~> 1.1.1'
 
+# upload
+gem 'carrierwave', '~> 1.2.3'
+gem 'mini_magick', '~> 4.8.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
