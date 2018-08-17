@@ -1,0 +1,8 @@
+<%= form_for [:admin, @tag_group] do |f| %>
+  <%= render 'admin/shared/form_messages', form: f %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', tabIndex: 1 %>
+  </div>
+  <%= f.submit 'Save', class: 'btn btn-primary', tabIndex: 2 %>
+<% end %>

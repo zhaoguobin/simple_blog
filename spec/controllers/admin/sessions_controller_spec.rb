@@ -3,6 +3,7 @@ require 'support/login_support'
 
 RSpec.describe Admin::SessionsController, type: :controller do
   include LoginSupport
+  validate_login_required [{delete: :destroy}]
 
   describe "GET #new" do
     context "as a guest" do
@@ -59,13 +60,6 @@ RSpec.describe Admin::SessionsController, type: :controller do
   end
 
   describe "DELETE #destroy" do
-    context "as a guest" do
-      it "redirects to the admin/login page" do
-        delete :destroy
-        expect(response).to redirect_to "/admin/login"
-      end
-    end
-
     context "as an authenticated user" do
       it "responds successfully" do
         sign_in

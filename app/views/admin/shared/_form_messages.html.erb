@@ -1,0 +1,10 @@
+<% if form.object.errors.any? %>
+  <div class="alert alert-warning alert-dismissible fade show">
+    <% form.object.errors.full_messages.each do |msg| %>
+      <p class="mb-0"><%= msg %></p>
+    <% end %>
+    <button type="button" class="close" aria-label="Close" data-dismiss="alert">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
