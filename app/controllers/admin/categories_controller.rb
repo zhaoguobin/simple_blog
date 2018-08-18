@@ -20,6 +20,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def show
+    @articles = @category.articles.page(params[:page])
   end
 
   def edit

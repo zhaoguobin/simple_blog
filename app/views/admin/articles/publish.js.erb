@@ -1,0 +1,9 @@
+$("#<%= dom_id(@article) %>").replaceWith(
+  "<%= escape_javascript render('admin/articles/article_list_item', article: @article) %>"
+);
+
+<% if @article.published? %>
+  alert("Published successfully!");
+<% else %>
+  alert("Unpublished successfully!");
+<% end %>

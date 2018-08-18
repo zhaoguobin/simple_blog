@@ -5,5 +5,9 @@ module ApplicationHelper
       'active' unless active_action.present? && action_name != active_action
     end
   end
+
+  def show_time(datetime)
+    datetime.strftime("%Y-%m-%d %H:%M:%S") if datetime.present?
+  end
   
 end

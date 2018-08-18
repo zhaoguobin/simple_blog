@@ -1,0 +1,22 @@
+<table class="table table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Published at</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% articles.each do |article| %>
+      <%= render 'admin/articles/article_list_item', article: article %>
+    <% end %>
+    <% if articles.blank? %>
+      <tr>
+        <td colspan="5">No record.</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate articles %>

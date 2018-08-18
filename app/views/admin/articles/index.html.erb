@@ -1,7 +1,10 @@
-<div id="admin_categories">
+<div id="admin_articles">
   <%= render 'admin/shared/flash_messages' %>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h3>Articles of category (<%= @category.name %>)</h3>
+    <h3>Articles</h3>
+    <div class="btn-toolbar mb-2 mb-md-0">
+      <%= link_to 'New', new_admin_article_path, class: 'btn btn-primary' %>  
+    </div>
   </div>
   <div>
     <%= render 'admin/articles/article_list', articles: @articles %>

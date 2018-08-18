@@ -1,9 +1,9 @@
-<div id="admin_categories">
+<div id="admin_articles">
   <%= render 'admin/shared/flash_messages' %>
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-    <h3>Articles of category (<%= @category.name %>)</h3>
+    <h3>Edit article</h3>
   </div>
   <div>
-    <%= render 'admin/articles/article_list', articles: @articles %>
+    <%= render 'form' %>
   </div>
 </div>

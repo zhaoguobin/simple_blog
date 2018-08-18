@@ -10,6 +10,12 @@ Rails.application.routes.draw do
     resources :tag_groups
     resources :tags
     resources :categories
+    resources :articles do
+      member do
+        patch :publish
+        patch :unpublish
+      end
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

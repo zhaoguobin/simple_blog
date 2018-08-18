@@ -1,0 +1,19 @@
+<tr id="<%= dom_id(article) %>">
+  <td><%= article.id %></td>
+  <td><%= link_to article.title, admin_article_path(article) %></td>
+  <td><%= link_to article.category.name, admin_category_path(article.category) %></td>
+  <td><%= show_time article.published_at %></td>
+  <td>
+    <%= link_to 'Edit', edit_admin_article_path(article), class: 'btn btn-primary btn-sm' %>
+    <%= link_to 'Delete', admin_article_path(article), data: {method: :delete, confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %>
+    <% if article.published? %>
+      <%= link_to 'Unpublish', unpublish_admin_article_path(article),
+                  data: {method: :patch, remote: true, confirm: 'Are you sure?'}, 
+                  class: 'btn btn-warning btn-sm' %>
+    <% else %>
+      <%= link_to 'Publish', publish_admin_article_path(article),
+                  data: {method: :patch, remote: true, confirm: 'Are you sure?'}, 
+                  class: 'btn btn-warning btn-sm' %>
+    <% end %>
+  </td>
+</tr>
