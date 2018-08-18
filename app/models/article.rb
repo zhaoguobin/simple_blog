@@ -4,6 +4,7 @@ class Article < ApplicationRecord
   mount_uploader :avatar, ItemAvatarUploader
 
   belongs_to :category, counter_cache: true
+  has_and_belongs_to_many :tags
   
   validates :title, presence: true, uniqueness: true
 

@@ -28,6 +28,13 @@ RSpec.describe Article, type: :model do
     expect(article.category).to eq @category
   end
 
+  it "has many and belongs to tags" do
+    tag_group = TagGroup.create(name: 'test tag group')
+    tag = Tag.create(name: 'test tag', tag_group_id: tag_group.id)
+    article = Article.create(title: 'test_article', category_id: @category.id, tag_ids: [tag.id])
+    expect(article.tags).to include(tag)
+  end
+
   context "published? method" do
     it "return true if its published_at is present" do
       article = Article.create(title: 'test_article', category_id: @category.id, published_at: Time.now)

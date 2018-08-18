@@ -12,4 +12,5 @@
  *
  *= require admin/custom
  *= require rails_simplemde
+ *= require chosen
  */

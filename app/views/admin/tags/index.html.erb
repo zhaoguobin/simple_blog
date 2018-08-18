@@ -7,36 +7,6 @@
     </div>
   </div>
   <div>
-    <table class="table table-hover">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Tag group</th>
-          <th scope="col">Articles count</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @tags.each do |tag| %>
-          <tr>
-            <td><%= tag.id %></td>
-            <td><%= link_to tag.name, admin_tag_path(tag) %></td>
-            <td><%= link_to tag.tag_group.name, admin_tag_group_path(tag.tag_group) %></td>
-            <td><%= tag.articles_count %></td>
-            <td>
-              <%= link_to 'Edit', edit_admin_tag_path(tag), class: 'btn btn-primary btn-sm' %>
-              <%= link_to 'Delete', admin_tag_path(tag), data: {method: :delete, confirm: 'Are you sure?'}, class: 'btn btn-danger btn-sm' %>
-            </td>
-          </tr>
-        <% end %>
-        <% if @tags.blank? %>
-          <tr>
-            <td colspan="5">No record.</td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= paginate @tags %>
+    <%= render 'admin/tags/tag_list', tags: @tags %>
   </div>
 </div>

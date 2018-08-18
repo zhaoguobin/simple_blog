@@ -27,4 +27,12 @@ RSpec.describe Tag, type: :model do
     tag = Tag.create(name: 'test_tag', tag_group_id: @tag_group.id)
     expect(tag.tag_group).to eq @tag_group
   end
+
+  it "has many and belongs to articles" do
+    tag = Tag.create(name: 'test tag', tag_group_id: @tag_group.id)
+    category = Category.create(name: 'test category')
+    article = Article.create(title: 'test_article', category_id: category.id, tag_ids: [tag.id])
+    expect(tag.articles).to include(article)
+  end
+  
 end

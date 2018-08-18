@@ -1,6 +1,6 @@
 class Admin::ArticlesController < Admin::ApplicationController
   before_action :find_article, only: [:show, :edit, :update, :destroy, :publish, :unpublish]
-  before_action :load_categories, only: [:new, :create, :edit, :update]
+  before_action :load_categories_and_tags, only: [:new, :create, :edit, :update]
 
   def index
     @articles = Article.includes(:category).all.page(params[:page])
@@ -55,11 +55,12 @@ class Admin::ArticlesController < Admin::ApplicationController
     @article = Article.friendly.find params[:id]
   end
 
-  def load_categories
+  def load_categories_and_tags
     @categories = Category.all
+    @tags = Tag.all
   end
 
   def article_params
-    params.require(:article).permit(:title, :avatar, :abstract, :body, :category_id)
+    params.require(:article).permit(:title, :avatar, :abstract, :body, :category_id, tag_ids: [])
   end
 end

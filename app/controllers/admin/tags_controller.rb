@@ -21,6 +21,7 @@ class Admin::TagsController < Admin::ApplicationController
   end
 
   def show
+    @articles = @tag.articles.page(params[:page])
   end
 
   def edit

@@ -18,3 +18,5 @@
 //= require bootstrap
 //= require rails_simplemde
 //= require admin/load_simplemde
+//= require chosen-jquery
+//= require admin/load_chosen

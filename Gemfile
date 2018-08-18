@@ -42,6 +42,9 @@ gem 'mini_magick', '~> 4.8.0'
 gem 'rails_simplemde_editor', '~> 0.0.1'
 gem 'redcarpet', '~> 3.4.0'
 
+# chosen
+gem 'chosen-rails', '~> 1.8.3'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
