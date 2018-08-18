@@ -16,3 +16,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require rails_simplemde
+//= require admin/load_simplemde

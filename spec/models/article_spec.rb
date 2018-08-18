@@ -52,4 +52,10 @@ RSpec.describe Article, type: :model do
     expect(article.published_at).to be nil
   end
 
+  it "updates body_html and body_toc automatically when updates body" do
+    article = Article.create(title: 'test_article', category_id: @category.id, body: "## head 1\n## head 2\n")
+    expect(article.body_html).to eq "<h2 id=\"head-1\">head 1</h2>\n\n<h2 id=\"head-2\">head 2</h2>\n"
+    expect(article.body_toc).to eq "<ul>\n<li>\n<a href=\"#head-1\">head 1</a>\n</li>\n<li>\n<a href=\"#head-2\">head 2</a>\n</li>\n</ul>\n"
+  end
+
 end

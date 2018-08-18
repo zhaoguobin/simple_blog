@@ -38,6 +38,10 @@ gem 'kaminari', '~> 1.1.1'
 gem 'carrierwave', '~> 1.2.3'
 gem 'mini_magick', '~> 4.8.0'
 
+# markdown
+gem 'rails_simplemde_editor', '~> 0.0.1'
+gem 'redcarpet', '~> 3.4.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
