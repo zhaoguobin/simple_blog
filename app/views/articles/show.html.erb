@@ -1,0 +1,19 @@
+<div id="home_articles_page">
+  <%= render 'article_card', article: @article %>
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <%= render 'article_abstract', abstract: @article.abstract %>
+        <div class="shadow-sm my-3 p-3 bg-white rounded">
+          <div class="py-2 article-body">
+            <%= raw @article.body_html %>
+          </div>
+          <%= render 'article_tag_list', tags: @article.tags %>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        <%= render 'article_toc', article: @article %>
+      </div>
+    </div>
+  </div>
+</div>

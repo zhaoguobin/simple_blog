@@ -4,6 +4,27 @@ body {
     background: $gray-200;
 }
 
+a {
+    color: $gray-600;
+
+    &:hover {
+        color: $dark;
+    }
+}
+
 .image-text {
     text-shadow: 0px 0px 4px black;
+}
+
+.article-body img {
+    width: 100%;
+}
+
+.btn-tag {
+    background-color: $gray-200;
+    border-color: $gray-200;
+
+    &:hover {
+        background-color: $gray-400;
+    }
 }

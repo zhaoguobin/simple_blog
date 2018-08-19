@@ -1,0 +1,14 @@
+<div class="carousel slide text-white rounded-0">
+  <div class="carousel-inner">
+    <%= render 'articles/article_card_image', article: article %>
+  </div>
+  <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+    <h5 class="card-title image-text mb-auto">
+      <%= article.title %>
+    </h5>
+    <div class="container d-flex">
+      <%= link_to article.category.name, '#', class: 'card-text image-text text-white mr-auto' %>
+      <span><%= show_date(article.published_at) %></span>
+    </div>
+  </div>
+</div>

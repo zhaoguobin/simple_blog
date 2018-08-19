@@ -49,6 +49,26 @@ class ItemAvatarUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [600, 512]
   end
 
+  version :xlarge_half do
+    process resize_to_fill: [2200, 206]
+  end
+
+  version :large_half do
+    process resize_to_fill: [1200, 206]
+  end
+
+  version :middle_half do
+    process resize_to_fill: [992, 206]
+  end
+
+  version :small_half do
+    process resize_to_fill: [768, 206]
+  end
+
+  version :normal_half do
+    process resize_to_fill: [600, 206]
+  end
+
   version :thumb_xlarge do
     process resize_to_fill: [260, 150]
   end
