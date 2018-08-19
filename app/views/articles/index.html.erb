@@ -1,0 +1,12 @@
+<div id="articles_index_page">
+  <%= render 'carousel', articles: @carousel_articles %>
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <%= render 'article_list', articles: @articles %>
+      </div>
+      <div class="col-md-4 col-lg-3">
+      </div>
+    </div>
+  </div>
+</div>

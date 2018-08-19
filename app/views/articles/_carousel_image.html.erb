@@ -1,0 +1,7 @@
+<picture>
+  <source srcset="<%= article.avatar.xlarge.url %>", media="(min-width: 1200px)">
+  <source srcset="<%= article.avatar.large.url %>", media="(min-width: 992px)">
+  <source srcset="<%= article.avatar.middle.url %>", media="(min-width: 768px)">
+  <source srcset="<%= article.avatar.small.url %>", media="(min-width: 576px)">
+  <%= image_tag(article.avatar.normal.url, alt: article.title) %>
+</picture>

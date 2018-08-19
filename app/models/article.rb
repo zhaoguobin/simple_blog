@@ -10,6 +10,8 @@ class Article < ApplicationRecord
 
   before_save :render_markdown
 
+  scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
+
   def published?
     published_at.present?
   end

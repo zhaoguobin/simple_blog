@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Simple Blog', admin_login? ? admin_root_path : '/', class: 'navbar-brand' %>
+  <%= link_to 'Simple Blog', admin_login? ? admin_root_path : root_path, class: 'navbar-brand' %>
 
   <% if admin_login? %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

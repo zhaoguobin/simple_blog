@@ -29,8 +29,44 @@ class ItemAvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+  version :xlarge do
+    process resize_to_fill: [2200, 512]
+  end
+
+  version :large do
+    process resize_to_fill: [1200, 512]
+  end
+
+  version :middle do
+    process resize_to_fill: [992, 512]
+  end
+
+  version :small do
+    process resize_to_fill: [768, 512]
+  end
+
+  version :normal do
+    process resize_to_fill: [600, 512]
+  end
+
+  version :thumb_xlarge do
+    process resize_to_fill: [260, 150]
+  end
+
+  version :thumb_large do
+    process resize_to_fill: [220, 150]
+  end
+
+  version :thumb_middle do
+    process resize_to_fill: [140, 150]
+  end
+
+  version :thumb_small do
+    process resize_to_fill: [370, 150]
+  end
+
   version :thumb do
-    process resize_to_fit: [100, 100]
+    process resize_to_fill: [280, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

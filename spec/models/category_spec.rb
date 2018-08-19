@@ -33,4 +33,13 @@ RSpec.describe Category, type: :model do
       category.destroy
     }.to change(Article.all, :count).by(-1)
   end
+
+  it "returns published articles" do
+    category = Category.create(name: 'test_category')
+    unpublished_article = Article.create(title: 'unpublished_article', category_id: category.id, published_at: nil)
+    published_article1 = Article.create(title: 'published_article1', category_id: category.id, published_at: 1.hour.ago)
+    published_article2 = Article.create(title: 'published_article2', category_id: category.id, published_at: Time.now)
+    expect(category.published_articles).to eq [published_article2, published_article1]
+  end
+
 end

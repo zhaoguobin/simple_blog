@@ -18,7 +18,7 @@ class Admin::SessionsController < Admin::ApplicationController
 
   def destroy
     logout
-    redirect_to '/'
+    redirect_to root_path
   end
 
   private
