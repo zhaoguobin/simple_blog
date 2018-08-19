@@ -7,4 +7,8 @@ class Tag < ApplicationRecord
   has_and_belongs_to_many :articles
   
   validates :name, presence: true, uniqueness: true
+
+  def published_articles
+    articles.where.not(published_at: nil).order(published_at: :desc)
+  end
 end
