@@ -1,0 +1,12 @@
+<div id="categories_show_page">
+  <%= render 'item_card', item: @category %>
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        <%= render 'articles/article_list', articles: @articles %>
+      </div>
+      <div class="col-md-4 col-lg-3">
+      </div>
+    </div>
+  </div>
+</div>

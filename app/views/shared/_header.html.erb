@@ -8,5 +8,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown  <%= active_class 'categories' %>">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Categories
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% @categories.each do |category| %>
+            <%= link_to category.name, category_path(category), class: 'dropdown-item' %>
+          <% end %>
+        </div>
+      </li>
     </ul>
 </header>

@@ -3,7 +3,7 @@
     <%= link_to article.title, article_path(article), class: 'text-dark' %>
   </h3>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 article-item-image">
       <%= render 'articles/article_item_image', article: article %>
     </div>
     <div class="col-md-8 d-flex flex-column">
@@ -11,7 +11,7 @@
         <%= link_to truncate(article.abstract, length: 150), article_path(article), class: 'text-secondary' %>
       </div>
       <div class="d-flex mt-2 mt-md-0">
-        <%= link_to article.category.name, '#', class: 'text-secondary mr-auto' %>
+        <%= link_to article.category.name, category_path(article.category), class: 'text-secondary mr-auto' %>
         <span class="text-secondary"><%= show_date(article.published_at) %></span>
       </div>
     </div>
