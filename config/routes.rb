@@ -19,7 +19,11 @@ Rails.application.routes.draw do
   end
 
   root to: 'articles#index'
-  resources :articles, only: [:index, :show]
+  resources :articles, only: [:index, :show] do
+    collection do
+      get :feed
+    end
+  end
   resources :categories, only: [:show]
   resources :tags, only: [:index, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

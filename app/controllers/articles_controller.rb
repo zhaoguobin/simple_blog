@@ -7,4 +7,11 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.includes(:category, :tags).published.friendly.find params[:id]
   end
+
+  def feed
+    @articles = Article.published
+    respond_to do |format|
+      format.rss { render :layout => false }
+    end
+  end
 end
