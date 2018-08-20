@@ -8,6 +8,9 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%= active_class 'articles' %>">
+        <%= link_to 'Articles', articles_path, class: 'nav-link' %>
+      </li>
       <li class="nav-item dropdown  <%= active_class 'categories' %>">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Categories
@@ -17,6 +20,9 @@
             <%= link_to category.name, category_path(category), class: 'dropdown-item' %>
           <% end %>
         </div>
+      </li>
+      <li class="nav-item <%= active_class 'tags' %>">
+        <%= link_to 'Tags', tags_path, class: 'nav-link' %>
       </li>
     </ul>
 </header>
