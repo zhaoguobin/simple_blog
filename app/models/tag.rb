@@ -8,7 +8,12 @@ class Tag < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true
 
+  def self.hot(limit = 10)
+    order(articles_count: :desc).limit(limit)
+  end
+
   def published_articles
     articles.where.not(published_at: nil).order(published_at: :desc)
   end
+
 end

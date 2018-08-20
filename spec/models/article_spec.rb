@@ -35,6 +35,28 @@ RSpec.describe Article, type: :model do
     expect(article.tags).to include(tag)
   end
 
+  it "increment/decrement articles_count of tags when add/remove tags" do
+    tag_group = TagGroup.create(name: 'test tag group')
+    tag = Tag.create(name: 'test tag', tag_group_id: tag_group.id)
+    count_before_add = tag.articles_count
+    article = Article.create(title: 'test_article', category_id: @category.id, tag_ids: [tag.id])
+    count_after_add = tag.reload.articles_count
+    expect(count_after_add - count_before_add).to eq 1
+    article.tags.delete(tag)
+    count_after_remove = tag.reload.articles_count
+    expect(count_after_remove - count_after_add).to eq -1
+  end
+
+  it "decrement articles_count of tags when it is deleted" do
+    tag_group = TagGroup.create(name: 'test tag group')
+    tag = Tag.create(name: 'test tag', tag_group_id: tag_group.id)
+    article = Article.create(title: 'test_article', category_id: @category.id, tag_ids: [tag.id])
+    count_after_add = tag.reload.articles_count
+    article.destroy
+    count_after_destroy = tag.reload.articles_count
+    expect(count_after_destroy - count_after_add).to eq -1
+  end
+
   it "returns published articles" do
     unpublished_article = Article.create(title: 'unpublished_article', category_id: @category.id, published_at: nil)
     published_article1 = Article.create(title: 'published_article1', category_id: @category.id, published_at: 1.hour.ago)

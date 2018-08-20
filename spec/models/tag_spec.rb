@@ -35,6 +35,17 @@ RSpec.describe Tag, type: :model do
     expect(tag.articles).to include(article)
   end
 
+  it "returns hot articles" do
+    tag1 = Tag.create(name: 'test tag 1', tag_group_id: @tag_group.id)
+    tag2 = Tag.create(name: 'test tag 2', tag_group_id: @tag_group.id)
+    category = Category.create(name: 'test category')
+    Article.create(title: 'test_article_1', category_id: category.id, tag_ids: [tag1.id])
+    Article.create(title: 'test_article_2', category_id: category.id, tag_ids: [tag2.id])
+    Article.create(title: 'test_article_3', category_id: category.id, tag_ids: [tag2.id])
+    expect(Tag.hot).to eq [tag2, tag1]
+    expect(Tag.hot(1)).to eq [tag2]
+  end
+
   it "returns published articles" do
     tag = Tag.create(name: 'test tag', tag_group_id: @tag_group.id)
     category = Category.create(name: 'test_category')

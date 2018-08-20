@@ -6,7 +6,7 @@
     <h5 class="card-title image-text mb-auto">
       <%= article.title %>
     </h5>
-    <div class="container d-flex">
+    <div class="container d-flex image-text">
       <%= link_to article.category.name, category_path(article.category), class: 'card-text image-text text-white mr-auto' %>
       <span><%= show_date(article.published_at) %></span>
     </div>

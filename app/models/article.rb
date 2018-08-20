@@ -4,11 +4,16 @@ class Article < ApplicationRecord
   mount_uploader :avatar, ItemAvatarUploader
 
   belongs_to :category, counter_cache: true
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags, after_add: :increment_articles_count, after_remove: :decrement_articles_count
   
   validates :title, presence: true, uniqueness: true
 
   before_save :render_markdown
+  before_destroy do
+    self.tags.each do |tag|
+      decrement_articles_count(tag)
+    end
+  end
 
   scope :published, -> { where.not(published_at: nil).order(published_at: :desc) }
 
@@ -31,4 +36,13 @@ class Article < ApplicationRecord
     self.body_html = MARKDOWN.render(body_str)
     self.body_toc = TOC.render(body_str)
   end
+
+  def increment_articles_count(tag)
+    Tag.increment_counter(:articles_count, tag)
+  end
+
+  def decrement_articles_count(tag)
+    Tag.decrement_counter(:articles_count, tag)
+  end
+
 end
