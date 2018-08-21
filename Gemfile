@@ -45,6 +45,10 @@ gem 'redcarpet', '~> 3.4.0'
 # chosen
 gem 'chosen-rails', '~> 1.8.3'
 
+# background job
+gem 'delayed_job_active_record', '~> 4.1.3'
+gem 'daemons', '~> 1.2.6'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

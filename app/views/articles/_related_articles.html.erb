@@ -1,0 +1,6 @@
+<div class="shadow-sm my-3 p-3 bg-white rounded">
+  <h5>Related articles</h5>
+  <% articles.each do |article| %>
+    <%= link_to article.title, article_path(article), class: 'd-block' %>
+  <% end %>
+</div>

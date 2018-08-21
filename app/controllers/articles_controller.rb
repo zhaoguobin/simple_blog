@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.includes(:category, :tags).published.friendly.find params[:id]
+    @related_articles = @article.related_articles
   end
 
   def feed
