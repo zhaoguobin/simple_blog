@@ -1,6 +1,10 @@
-<% tag_groups.each do |tag_group| %>
-  <div class="shadow-sm my-3 p-3 bg-white rounded card">
-    <h5 class="border-bottom p-1"><%= tag_group.name %> (<%= tag_group.tags_count %>)</h5>
-    <%= render 'tag_list', tags: tag_group.tags %>
-  </div>
+<% cache tag_groups do %>
+  <% tag_groups.each do |tag_group| %>
+    <% cache tag_group do %>
+      <div class="shadow-sm my-3 p-3 bg-white rounded card">
+        <h5 class="border-bottom p-1"><%= tag_group.name %> (<%= tag_group.tags_count %>)</h5>
+        <%= render 'tag_list', tags: tag_group.tags %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

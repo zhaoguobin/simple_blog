@@ -1,9 +1,11 @@
-<%= link_to article_path(article) do %>
-  <picture>
-    <source srcset="<%= article.avatar.thumb_xlarge.url %>", media="(min-width: 1200px)">
-    <source srcset="<%= article.avatar.thumb_large.url %>", media="(min-width: 992px)">
-    <source srcset="<%= article.avatar.thumb_middle.url %>", media="(min-width: 768px)">
-    <source srcset="<%= article.avatar.thumb_small.url %>", media="(min-width: 576px)">
-    <%= image_tag article.avatar.thumb.url, alt: article.title, class: 'rounded' %>
-  </picture>
+<% cache article do %>
+  <%= link_to article_path(article) do %>
+    <picture>
+      <source srcset="<%= article.avatar.thumb_xlarge.url %>", media="(min-width: 1200px)">
+      <source srcset="<%= article.avatar.thumb_large.url %>", media="(min-width: 992px)">
+      <source srcset="<%= article.avatar.thumb_middle.url %>", media="(min-width: 768px)">
+      <source srcset="<%= article.avatar.thumb_small.url %>", media="(min-width: 576px)">
+      <%= image_tag article.avatar.thumb.url, alt: article.title, class: 'rounded' %>
+    </picture>
+  <% end %>
 <% end %>

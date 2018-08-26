@@ -1,4 +1,6 @@
-<div class="shadow-sm my-3 p-3 bg-white rounded">
-  <h5>Hot tags</h5>
-  <%= render 'articles/article_tag_list', tags: tags %>
-</div>
+<% cache tags do %>
+  <div class="shadow-sm my-3 p-3 bg-white rounded">
+    <h5>Hot tags</h5>
+    <%= render 'articles/article_tag_list', tags: tags %>
+  </div>
+<% end %>

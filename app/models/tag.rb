@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
   friendly_id :name, use: :slugged
   mount_uploader :avatar, ItemAvatarUploader
 
-  belongs_to :tag_group, counter_cache: true
+  belongs_to :tag_group, counter_cache: true, touch: true
   has_and_belongs_to_many :articles
   
   validates :name, presence: true, uniqueness: true

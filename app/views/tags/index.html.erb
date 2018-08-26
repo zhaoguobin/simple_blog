@@ -1,6 +1,8 @@
-<div id="tags_index_page">
-  <%= render 'tag_card' %>
-  <div class="container">
-    <%= render 'tag_group_list', tag_groups: @tag_groups %>
+<% cache @tag_groups do %>
+  <div id="tags_index_page">
+    <%= render 'tag_card' %>
+    <div class="container">
+      <%= render 'tag_group_list', tag_groups: @tag_groups %>
+    </div>
   </div>
-</div>
+<% end %>

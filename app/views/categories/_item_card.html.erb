@@ -1,13 +1,15 @@
-<div class="carousel slide text-white rounded-0">
-  <div class="carousel-inner">
-    <%= render 'categories/item_card_image', item: item %>
-  </div>
-  <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-    <h5 class="card-title image-text mb-4">
-      <%= item.name %>
-    </h5>
-    <div class="container text-center image-text">
-      <%= item.description %>
+<% cache item do %>
+  <div class="carousel slide text-white rounded-0">
+    <div class="carousel-inner">
+      <%= render 'categories/item_card_image', item: item %>
+    </div>
+    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+      <h5 class="card-title image-text mb-4">
+        <%= item.name %>
+      </h5>
+      <div class="container text-center image-text">
+        <%= item.description %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

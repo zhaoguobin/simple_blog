@@ -1,12 +1,14 @@
-<div id="tags_show_page">
-  <%= render 'categories/item_card', item: @tag %>
-  <div class="container my-2">
-    <div class="row">
-      <div class="col-md-8 col-lg-9">
-        <%= render 'articles/article_list', articles: @articles %>
-      </div>
-      <div class="col-md-4 col-lg-3">
+<% cache [@tag, @articles] do %>
+  <div id="tags_show_page">
+    <%= render 'categories/item_card', item: @tag %>
+    <div class="container my-2">
+      <div class="row">
+        <div class="col-md-8 col-lg-9">
+          <%= render 'articles/article_list', articles: @articles %>
+        </div>
+        <div class="col-md-4 col-lg-3">
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

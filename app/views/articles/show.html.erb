@@ -6,7 +6,9 @@
         <%= render 'article_abstract', abstract: @article.abstract %>
         <div class="shadow-sm my-3 p-3 bg-white rounded">
           <div class="py-2 article-body">
-            <%= raw @article.body_html %>
+            <% cache @article.body_html do %>
+              <%= raw @article.body_html %>
+            <% end %>
           </div>
           <%= render 'article_tag_list', tags: @article.tags %>
         </div>

@@ -1,1 +1,3 @@
-<%== Rails.application.credentials[Rails.env.to_sym][:analytics_js] %>
+<% cache Rails.application.credentials[Rails.env.to_sym][:analytics_js] do %>
+  <%== Rails.application.credentials[Rails.env.to_sym][:analytics_js] %>
+<% end %>

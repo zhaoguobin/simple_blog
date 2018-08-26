@@ -1,4 +1,6 @@
-<% articles.each do |article| %>
-  <%= render 'articles/article_item', article: article %>
+<% cache [articles, @categories] do %>
+  <% articles.each do |article| %>
+    <%= render 'articles/article_item', article: article %>
+  <% end %>
+  <%= paginate articles %>
 <% end %>
-<%= paginate articles %>

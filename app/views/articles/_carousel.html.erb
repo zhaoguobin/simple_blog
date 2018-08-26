@@ -1,25 +1,29 @@
-<div id="carouselArticleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <% articles.size.times do |index| %>
-      <li data-target="#carouselArticleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>"></li>
-    <% end %>
-  </ol>
-  <div class="carousel-inner">
-    <% articles.each_with_index do |article, index| %>
-      <%= link_to article_path(article), class: index.zero? ? 'carousel-item text-light active' : 'carousel-item text-light' do %>
-        <%= render 'carousel_image', article: article %>
-        <div class="carousel-caption">
-          <h5 class="image-text"><%= article.title %></h5>
-        </div>
+<% cache articles do %>
+  <div id="carouselArticleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <% articles.size.times do |index| %>
+        <li data-target="#carouselArticleIndicators" data-slide-to="<%= index %>" class="<%= 'active' if index.zero? %>"></li>
       <% end %>
-    <% end %>
+    </ol>
+    <div class="carousel-inner">
+      <% articles.each_with_index do |article, index| %>
+        <% cache [article, index.zero?] do %>
+          <%= link_to article_path(article), class: index.zero? ? 'carousel-item text-light active' : 'carousel-item text-light' do %>
+            <%= render 'carousel_image', article: article %>
+            <div class="carousel-caption">
+              <h5 class="image-text"><%= article.title %></h5>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <a class="carousel-control-prev" href="#carouselArticleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselArticleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <a class="carousel-control-prev" href="#carouselArticleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselArticleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+ <% end %> 

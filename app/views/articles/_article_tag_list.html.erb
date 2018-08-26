@@ -1,5 +1,7 @@
-<div class="row border-top px-3">
-  <% tags.each do |tag| %>
-    <%= render 'articles/article_tag_item', tag: tag %>
-  <% end %>
-</div>
+<% cache tags do %>
+  <div class="row border-top px-3">
+    <% tags.each do |tag| %>
+      <%= render 'articles/article_tag_item', tag: tag %>
+    <% end %>
+  </div>
+<% end %>

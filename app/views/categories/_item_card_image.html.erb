@@ -1,7 +1,9 @@
-<picture>
-  <source srcset="<%= item.avatar.xlarge_half.url %>", media="(min-width: 1200px)">
-  <source srcset="<%= item.avatar.large_half.url %>", media="(min-width: 992px)">
-  <source srcset="<%= item.avatar.middle_half.url %>", media="(min-width: 768px)">
-  <source srcset="<%= item.avatar.small_half.url %>", media="(min-width: 576px)">
-  <%= image_tag(item.avatar.normal_half.url, alt: item.name) %>
-</picture>
+<% cache item do %>
+  <picture>
+    <source srcset="<%= item.avatar.xlarge_half.url %>", media="(min-width: 1200px)">
+    <source srcset="<%= item.avatar.large_half.url %>", media="(min-width: 992px)">
+    <source srcset="<%= item.avatar.middle_half.url %>", media="(min-width: 768px)">
+    <source srcset="<%= item.avatar.small_half.url %>", media="(min-width: 576px)">
+    <%= image_tag(item.avatar.normal_half.url, alt: item.name) %>
+  </picture>
+<% end %>

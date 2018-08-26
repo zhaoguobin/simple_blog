@@ -1,7 +1,11 @@
-<div class="d-flex flex-wrap">
-  <% tags.each do |tag| %>
-      <%= link_to tag_path(tag), class: 'list-group-item p-2 rounded d-inline-block justify-content-start align-items-center mr-3 mb-3 bg-light text-dark' do %>
-        <%= tag.name %>
+<% cache tags do %>
+  <div class="d-flex flex-wrap">
+    <% tags.each do |tag| %>
+      <% cache tag do %>
+        <%= link_to tag_path(tag), class: 'list-group-item p-2 rounded d-inline-block justify-content-start align-items-center mr-3 mb-3 bg-light text-dark' do %>
+          <%= tag.name %>
+        <% end %>
       <% end %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>

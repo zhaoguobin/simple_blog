@@ -10,7 +10,7 @@ class Article < ApplicationRecord
 
   before_save :render_markdown
   after_save do
-    self.delay.calculate_relation
+    self.delay.calculate_relation if self.published?
   end
   before_destroy do
     self.tags.each do |tag|
@@ -54,10 +54,10 @@ class Article < ApplicationRecord
   end
 
   def calculate_relation
-    Article.includes(:tags).each do |article|
+    Article.published.includes(:tags).each do |article|
       next if article.tag_ids.blank?
       relation = []
-      Article.includes(:tags).each do |another_article|
+      Article.published.includes(:tags).each do |another_article|
         next if article == another_article || another_article.tag_ids.blank?
         tags_intersection_count = (article.tag_ids & another_article.tag_ids).count
         tags_union_count = (article.tag_ids | another_article.tag_ids).count
