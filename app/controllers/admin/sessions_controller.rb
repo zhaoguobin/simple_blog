@@ -7,7 +7,7 @@ class Admin::SessionsController < Admin::ApplicationController
   end
 
   def create
-    if admin_authenticate?
+    if verify_rucaptcha? && admin_authenticate?
       login
       redirect_to admin_root_url
     else

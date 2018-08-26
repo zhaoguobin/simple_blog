@@ -34,6 +34,9 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'friendly_id', '~> 5.2.4'
 gem 'kaminari', '~> 1.1.1'
 
+# captcha
+gem 'rucaptcha', '~> 2.2.0'
+
 # upload
 gem 'carrierwave', '~> 1.2.3'
 gem 'mini_magick', '~> 4.8.0'

@@ -5,13 +5,19 @@
 
     <%= render 'admin/shared/flash_messages' %>
 
-    <%= label_tag 'admin_username', nil, class: 'sr-only' %>
-    <%= text_field_tag 'admin[username]', username, placeholder: 'Username', tabindex: 1, class: 'form-control', autofocus: username.blank? %>
+    <div class="form-group">
+      <%= label_tag 'admin_username', nil, class: 'sr-only' %>
+      <%= text_field_tag 'admin[username]', username, placeholder: 'Username', tabindex: 1, class: 'form-control group-top', autofocus: username.blank? %>
+      <%= label_tag 'admin_password', nil, class: 'sr-only' %>
+      <%= password_field_tag 'admin[password]', nil, placeholder: 'Password', tabindex: 2, class: 'form-control group-bottom', autofocus: username.present? %>
+    </div>
 
-    <%= label_tag 'admin_password', nil, class: 'sr-only' %>
-    <%= password_field_tag 'admin[password]', nil, placeholder: 'Password', tabindex: 2, class: 'form-control', autofocus: username.present? %>
-
-    <%= submit_tag 'Sign in', class: 'btn btn-lg btn-primary btn-block', tabindex: 3 %>
+    <div class="form-group">
+      <%= rucaptcha_image_tag(alt: 'Captcha', class: 'form-control group-top') %>
+      <%= rucaptcha_input_tag(class: 'form-control group-bottom', placeholder: 'Captcha', tabindex: 3) %>
+    </div>
+    
+    <%= submit_tag 'Sign in', class: 'btn btn-lg btn-primary btn-block', tabindex: 4 %>
 
     <p class="mt-5 mb-3 text-muted">2018 © Simple Blog</p>
   <% end %>
