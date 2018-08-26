@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Simple Blog</title>
+    <title><%= Rails.application.credentials[Rails.env.to_sym][:title] %></title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,6 +12,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'shared/analytics_js' %>
   </head>
 
   <body>
